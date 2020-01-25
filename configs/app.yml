@@ -1,0 +1,29 @@
+AI:
+    app:
+        version: "2019.09.09a"
+        configs: "${ROOT_DIR}/configs/app"
+    models:
+        configs:    "${ROOT_DIR}/configs/models" 
+        compressed: "${ROOT_DIR}/models/compressed"
+        expanded:   "${ROOT_DIR}/models/expanded" 
+        tuned:      "${ROOT_DIR}/models/tuned"
+        external:
+            NIST:
+                ssd_mobilenet_v2_coco: "http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz"
+    training: 
+        buffer_size:    '12800'
+        batch_size:     '512'
+        cores:          '8'
+        checkpoints:    '${ROOT_DIR}/training/data'
+        configs:        "${ROOT_DIR}/configs/training" 
+        train:          "${ROOT_DIR}/training/data/by_dataset"
+        labels:         "${ROOT_DIR}/training/labels"
+    datasets:
+        configs:        "${ROOT_DIR}/configs/datasets"
+        compressed:     "${ROOT_DIR}/datasets/compressed"
+        expanded:       "${ROOT_DIR}/datasets/expanded"
+        external: 
+            NIST: 
+                by_class: "https://s3.amazonaws.com/nist-srd/SD19/by_class.zip"
+                hsf_pages: "https://s3.amazonaws.com/nist-srd/SD19/hsf_page.zip"
+        handlers: "${ROOT_DIR}/py/handlers/"

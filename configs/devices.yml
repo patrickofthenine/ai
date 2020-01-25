@@ -1,0 +1,6 @@
+Device:
+    version: '.01'
+    devices: 
+        GPU: 'GPU'
+        CPU: 'CPU'
+    benchmarks: "${ROOT_DIR}/py/lib/utils/benchmarks"
